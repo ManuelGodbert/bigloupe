@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:device="http://www.springframework.org/schema/mobile/device"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	   		http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-3.1.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<!-- Equivalent with static access to property values -->
+	<!-- context:property-placeholder location="classpath:artdaba.properties" -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:bigloupe.properties" />
+	</bean>
+
+	<!-- Scans the classpath for annotated components that will be auto-registered 
+		as Spring beans. For example @Controller and @Service. Make sure to set the 
+		correct base-package -->
+	<!-- 
+	<context:component-scan base-package="org.bigloupe.web" />
+	 -->
+	<bean id="databaseStatsService" class="org.bigloupe.web.monitor.service.impl.DatabaseStatsService">
+		<property name="jdbcH2Template" ref="jdbcH2Template"/>
+		<property name="cleanTable" value="true"/>
+	</bean>
+	
+	<bean id="h2DataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<property name="url" value="jdbc:h2:file:database/bigloupe;MVCC=TRUE;TRACE_LEVEL_FILE=3" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="1800000" />
+		<property name="numTestsPerEvictionRun" value="3" />
+		<property name="minEvictableIdleTimeMillis" value="1800000" />
+	</bean>
+	
+		<!-- JDBC Template for SQL administration queries -->
+	<bean id="jdbcH2Template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="h2DataSource" />
+	</bean>
+</beans>

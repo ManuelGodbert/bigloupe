@@ -1,0 +1,5 @@
+#Fri Jul 20 18:35:54 CEST 2012
+param.bookingsegments=file:/tmp/data/hadoop/adt/booking/bookingsegments
+pig.script=index_avro_file_with_elasticsearch_local.pig
+type=pig
+param.output=index_avro_file

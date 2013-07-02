@@ -1,0 +1,6 @@
+type=map-reduce
+dependencies=DBLive13-SVT_rsu_dco_bookingpddupdate_Updated
+hadoop.home=hdfs/cluster/conf_lh-hadoopkarmaprod-st
+java.class=org.apache.hadoop.tools.DistCp
+jar.args=hdfs://lh-hadoopkarmaprod-st.france.airfrance.fr:3300/user/karma/hadoop/DBLive13-SVT/rsu/dco/external_feed/pdd/130131 hdfs://qvirkfs1.france.airfrance.fr:3300/user/karma/hadoop/DBLive13-${now}/rsu/dco/external_feed/pdd/130131
+notify.emails=cetorcq@airfrance.fr

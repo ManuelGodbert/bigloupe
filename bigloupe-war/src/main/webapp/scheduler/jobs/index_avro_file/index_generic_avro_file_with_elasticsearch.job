@@ -1,0 +1,4 @@
+#Tue Jan 15 16:40:21 CET 2013
+fileToIndex=hdfs\://qvidkar7.france.airfrance.fr\:3300/user/karma002/int1_pdd01/referential/MP_JVPLUS_INIT_PARAMS.avro
+type=indexfile
+elasticSearchDirectory=/app/KARMA/travail/karma-search/elasticsearch-0.20.2

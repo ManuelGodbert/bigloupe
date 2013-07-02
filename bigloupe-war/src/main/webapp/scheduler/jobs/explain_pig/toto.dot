@@ -1,0 +1,25 @@
+#-----------------------------------------------
+# New Logical Plan:
+#-----------------------------------------------
+genericfile: (Name: LOStore Schema: LEGDEPDAT#1:chararray,LAST_DBD_COMPUT#2:int,LEGARRARP#3:chararray,BC#4:chararray,INDIV_SS#5:chararray,GRP_SS#6:chararray,LEGDEPARP#7:chararray,FLTNUM_ID#8:long,CAB_LVL#9:chararray)
+|
+|---genericfile: (Name: LOLoad Schema: LEGDEPDAT#1:chararray,LAST_DBD_COMPUT#2:int,LEGARRARP#3:chararray,BC#4:chararray,INDIV_SS#5:chararray,GRP_SS#6:chararray,LEGDEPARP#7:chararray,FLTNUM_ID#8:long,CAB_LVL#9:chararray)RequiredFields:null
+
+#-----------------------------------------------
+# Physical Plan:
+#-----------------------------------------------
+genericfile: Store(/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro_FILTERED:org.apache.pig.piggybank.storage.avro.AvroStorage('same','/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro')) - scope-1
+|
+|---genericfile: Load(/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro:org.apache.pig.piggybank.storage.avro.AvroStorage) - scope-0
+
+#--------------------------------------------------
+# Map Reduce Plan                                  
+#--------------------------------------------------
+MapReduce node scope-2
+Map Plan
+genericfile: Store(/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro_FILTERED:org.apache.pig.piggybank.storage.avro.AvroStorage('same','/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro')) - scope-1
+|
+|---genericfile: Load(/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro:org.apache.pig.piggybank.storage.avro.AvroStorage) - scope-0--------
+Global sort: false
+----------------
+

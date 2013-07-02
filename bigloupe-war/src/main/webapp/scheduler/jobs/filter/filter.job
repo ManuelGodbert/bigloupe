@@ -1,0 +1,9 @@
+#Fri Jul 20 18:35:54 CEST 2012
+hadoop.home=hdfs/cluster/conf_qvirkfs1.france.airfrance.fr
+param.fileToFilter=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro
+param.fileFiltered=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000-filtered.avro
+param.filterParam=LAST_DBD_COMPUT
+param.filterValue=4
+pig.script=filter.pig
+type=pig
+

@@ -1,0 +1,6 @@
+#Wed Feb 20 17:57:09 CET 2013
+fileToIndex=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro
+index=zut
+type=indexfile
+hadoop.cluster=hdfs/cluster/conf_qvirkfs1.france.airfrance.fr
+elasticSearchDirectory=/app/KARMA/travail/karma-search/elasticsearch-0.20.2

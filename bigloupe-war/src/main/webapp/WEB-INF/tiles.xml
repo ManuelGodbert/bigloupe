@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!-- Master for administration tasks -->
+	<definition name="master-admin" template="/WEB-INF/jsp/layout/layout-admin.jsp">
+		<put-attribute name="menu" value="/WEB-INF/jsp/layout/menu-admin.jsp" />
+		<put-attribute name="body" value="" />
+		<put-list-attribute name="additionalJavascript" />
+	</definition>
+
+	<definition name="master-report" template="/WEB-INF/jsp/layout/layout-report.jsp">
+		<put-attribute name="menu"
+			value="/WEB-INF/jsp/layout/menu-report.jsp" />
+		<put-attribute name="body" value="" />
+		<put-list-attribute name="additionalJavascript" />
+	</definition>
+
+	<!-- Used by code 500 servlet error : simple layout to avoid any new errors -->
+	<definition name="500" template="/WEB-INF/jsp/error/500.jsp" />
+	
+	<!-- Used by code 500 servlet error in json -->
+	<definition name="500-json" template="/WEB-INF/jsp/error/500-json.jsp" />
+
+	<!-- Master page -->
+	<definition name="index" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+
+	<definition name="configuration" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/configuration.jsp" />
+	</definition>
+	
+	<!-- Search  -->
+	<definition name="elastic-search" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/search/elastic-search.jsp" />
+	</definition>
+	
+	<!-- Pig page to launch pig script -->
+	<definition name="pig" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/pig/pig.jsp" />
+	</definition>
+
+	<definition name="grunt" template="/WEB-INF/jsp/pig/grunt.jsp" />
+
+	<definition name="pig-console" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/pig/pig-console.jsp" />
+	</definition>
+
+	<definition name="pig-edit" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/pig/pig-edit.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/pig/pig-edit-js.jsp" />
+		</put-list-attribute>		
+	</definition>
+
+	<!-- Pig page to launch pig script -->
+	<definition name="sqoop" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/sqoop/sqoop.jsp" />
+	</definition>
+
+	<!-- Job Search Engine : elasticsearch -->
+	<definition name="indexfile" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/search/elastic-index-file.jsp" />
+	</definition>
+	
+	<definition name="contact" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/contact.jsp" />
+	</definition>
+
+	<!-- List of endpoints available -->
+	<definition name="endpoint" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/endpoint.jsp" />
+	</definition>
+	
+	<definition name="filemanager" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/filemanager/filemanager.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/filemanager/filemanager-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="fileviewer" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/filemanager/fileviewer.jsp" />
+	</definition>
+
+	<definition name="avroviewer" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-avro-viewer.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/hdfs-browser/hdfs-avro-viewer-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="avroschemacompare" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-avro-schema-compare.jsp" />
+	</definition>
+
+	<definition name="defaultviewer" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-default-viewer.jsp" />
+	</definition>
+	
+	<definition name="hdfsbrowser" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-browser.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/hdfs-browser/hdfs-browser-js.jsp" />
+		</put-list-attribute>			
+	</definition>
+
+	<definition name="hdfsdiskusage" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-du.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/hdfs-browser/hdfs-du-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="hdfschangeconfiguration" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/hdfs-browser/hdfs-change-configuration.jsp" />
+	</definition>
+
+	<definition name="database-info" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/database/database-info.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/report/d3-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- ********** -->
+	<!-- JobTracker -->
+	<!-- ********** -->
+	<definition name="jobtracker" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/job-tracker/jobtracker.jsp" />
+	</definition>
+
+	<!-- ********** -->
+	<!-- Map Reduce Statistics -->
+	<!-- ********** -->
+	<definition name="statistics" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/map-reduce-statistics/statistics.jsp" />
+	</definition>
+
+	<!-- ********** -->
+	<!-- Charts -->
+	<!-- ********** -->
+	<definition name="chart" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/chart/chart.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/chart/chart-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="cpu" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/chart/cpu.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/chart/chart-rickshaw-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	
+	
+	
+	<!-- ********* -->
+	<!-- Scheduler -->
+	<!-- ********* -->
+	<definition name="scheduler" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/scheduler.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="job-detail" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/job-detail.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="job-edit" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/job-edit.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="job-history" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/job-history.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="job-upload" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/job-upload.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="view-flow" extends="master-admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/scheduler/view-flow.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/scheduler/scheduler-js.jsp" />
+			<add-attribute value="/WEB-INF/jsp/scheduler/view-flow-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- ****** -->
+	<!-- Report -->
+	<!-- ****** -->
+	<definition name="geo-zones" extends="master-report">
+		<put-attribute name="body" value="/WEB-INF/jsp/report/geo-zones.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/report/d3-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	<definition name="france-geo-zones" extends="master-report">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/report/france-geo-zones.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/report/d3-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	<definition name="airport" extends="master-report">
+		<put-attribute name="body" value="/WEB-INF/jsp/report/airport.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/report/d3-js.jsp" />
+		</put-list-attribute>
+	</definition>
+	<definition name="airport-europe" extends="master-report">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/report/airport-europe.jsp" />
+		<put-list-attribute name="additionalJavascript"
+			inherit="true">
+			<add-attribute value="/WEB-INF/jsp/report/d3-js.jsp" />
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.1.xsd
+          http://www.springframework.org/schema/data/mongo
+          http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+          http://www.springframework.org/schema/aop 
+          http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" profile="chart-mongodb">
+
+	<context:property-placeholder location="classpath:/mongo.properties" />
+
+	<mongo:mongo host="${mongo.host}" port="${mongo.port}" />
+
+	<mongo:db-factory dbname="bigloupe" mongo-ref="mongo" />
+
+	<!-- by default look for a Mongo object named 'mongo' - default name used 
+		for the converter is 'mappingConverter' -->
+	<mongo:mapping-converter base-package="org.bigloupe.web.chart.model">
+<!-- 		<mongo:custom-converters>
+			<mongo:converter>
+				<bean class="org.bigloupe.web.chart.model.mongo.ChartReadConverter" />
+			</mongo:converter>
+			<mongo:converter>
+				<bean class="org.bigloupe.web.chart.model.mongo.ChartWriteConverter" />
+			</mongo:converter>
+			<mongo:converter>
+				<bean class="org.bigloupe.web.chart.model.mongo.TimeSeriesReadConverter" />
+			</mongo:converter>
+			<mongo:converter>
+				<bean class="org.bigloupe.web.chart.model.mongo.TimeSeriesWriteConverter" />
+			</mongo:converter>
+		</mongo:custom-converters> -->
+	</mongo:mapping-converter>
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+		<constructor-arg name="mongoConverter" ref="mappingConverter" />
+	</bean>
+
+	<!-- Spring-MongoDB-DATA -->
+	<mongo:repositories base-package="org.bigloupe.web.chart.dao" repository-impl-postfix="MongoImpl"/>
+
+	
+<!-- 	<bean id="seriesDao" class="org.bigloupe.web.chart.dao.impl.MongoSeriesDaoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean>
+	
+	<bean id="chartDao" class="org.bigloupe.web.chart.dao.impl.MongoChartDaoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate"/>
+	</bean> -->
+</beans>

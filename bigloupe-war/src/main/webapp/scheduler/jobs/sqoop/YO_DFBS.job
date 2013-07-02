@@ -1,0 +1,15 @@
+#Wed Aug 29 17:24:11 CEST 2012
+jdbcTable=YO_DFBS
+numberMappers=1
+avroDataFile=true
+jdbcPassword=KARMA_ADMIN
+jdbcUser=KARMA_O
+verbose=true
+deleteJavaMappingFile=true
+deleteHdfsTargetDir=true
+avscJarFile=
+usage=import
+type=sqoop
+jdbcConnection=jdbc\:oracle\:thin\:@lh-karmaqaq11-db.france.airfrance.fr\:1530\:KARMAQAL
+hdfsTargetDir=hdfs\://qvipkar5.france.airfrance.fr\:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2
+jdbcWhereClause=DEPDAT\=to_date('120701','YYMMDD')

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:device="http://www.springframework.org/schema/mobile/device"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	   		http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-3.1.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<import resource="classpath:/applicationContext-database.xml" />
+	<import resource="classpath*:/applicationContext-jmx.xml" />
+	<import resource="classpath:/applicationContext-jpa.xml" />
+	<import resource="classpath:/applicationContext-mongodb.xml" />
+
+	<task:scheduler id="taskScheduler" pool-size="10" />
+
+	<task:executor id="taskExecutor" pool-size="5" />
+
+	<task:annotation-driven executor="taskExecutor"
+		scheduler="taskScheduler" />
+
+
+	<!-- Gmail SMTP configuration -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="slashart2012" />
+		<property name="password" value="artslash2012" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Multipart upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- the maximum file size in bytes -->
+		<property name="maxUploadSize" value="100000000" />
+		<property name="maxInMemorySize" value="10240" />
+	</bean>
+
+	<!-- Activates various annotations to be detected in bean classes -->
+	<context:annotation-config />
+
+	<context:spring-configured />
+
+	<!-- Scans the classpath for annotated components that will be auto-registered 
+		as Spring beans. For example @Controller and @Service. Make sure to set the 
+		correct base-package -->
+	<context:component-scan base-package="org.bigloupe.web" />
+
+	<!-- All MVC configuration must be declared in this file -->
+	<!-- Configures the annotation-driven Spring MVC Controller programming 
+		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- Json converter compatible with Hibernate Business Object with lazy 
+				loading Support Hibernate 4 & Jackson 2 -->
+			<bean class="org.bigloupe.web.util.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="org.bigloupe.web.util.json.HibernateAwareObjectMapper" />
+				</property>
+			</bean>
+			<!-- Jsonp converter -->
+			<bean class="org.bigloupe.web.util.json.MappingJackson2JsonpHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/x-javascript</value>
+                        <value>application/javascript</value>
+                        <value>text/javascript</value>
+                    </list>
+                </property>
+			</bean>			
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- To serve static resources from locations -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/data/**" location="/data/" />
+	
+</beans>

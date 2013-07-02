@@ -1,0 +1,7 @@
+# Memo to use Cloudbees
+
+Test en local
+mvn bees:run -Ptomcat-bees
+
+Deploiement
+mvn bees:deploy -Ptomcat-bees -Dmaven.test.skip=true

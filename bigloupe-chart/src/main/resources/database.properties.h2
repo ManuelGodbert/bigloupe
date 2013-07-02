@@ -1,0 +1,6 @@
+chart.jdbc.password=
+chart.jdbc.url=jdbc:h2:file:database/bigloupe-chart;MVCC=TRUE;TRACE_LEVEL_FILE=3
+chart.jdbc.username=sa
+chart.jdbc.driverClassName=org.h2.Driver
+
+chart.hibernate.dialect=org.hibernate.dialect.H2Dialect

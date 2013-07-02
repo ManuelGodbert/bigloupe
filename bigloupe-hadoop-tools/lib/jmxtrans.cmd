@@ -1,0 +1,1 @@
+java -Djmxtrans.log.dir=. -jar jmxtrans-all.jar -f conf/jmxtrans-hadoop-namenode-lh-hadoopkarmaqua-st.france.airfrance.fr.json

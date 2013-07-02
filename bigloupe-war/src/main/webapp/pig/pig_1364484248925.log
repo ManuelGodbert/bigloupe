@@ -1,0 +1,27 @@
+Pig Stack Trace
+---------------
+ERROR 0: java.io.IOException: No FileSystem for scheme: mongodb
+
+org.apache.pig.backend.executionengine.ExecException: ERROR 0: java.io.IOException: No FileSystem for scheme: mongodb
+	at org.apache.pig.PigServer.launchPlan(PigServer.java:1295)
+	at org.apache.pig.PigServer.executeCompiledLogicalPlan(PigServer.java:1255)
+	at org.apache.pig.PigServer.execute(PigServer.java:1245)
+	at org.apache.pig.PigServer.executeBatch(PigServer.java:362)
+	at org.apache.pig.tools.grunt.GruntParser.executeBatch(GruntParser.java:132)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:193)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:165)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:84)
+	at org.apache.pig.Main.run(Main.java:555)
+	at org.apache.pig.Main.main(Main.java:111)
+Caused by: java.io.IOException: No FileSystem for scheme: mongodb
+	at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:1560)
+	at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:67)
+	at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:1597)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:1579)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:228)
+	at org.apache.hadoop.fs.Path.getFileSystem(Path.java:183)
+	at org.apache.pig.StoreFunc.cleanupOnFailureImpl(StoreFunc.java:173)
+	at org.apache.pig.StoreFunc.cleanupOnFailure(StoreFunc.java:160)
+	at org.apache.pig.PigServer.launchPlan(PigServer.java:1291)
+	... 9 more
+================================================================================

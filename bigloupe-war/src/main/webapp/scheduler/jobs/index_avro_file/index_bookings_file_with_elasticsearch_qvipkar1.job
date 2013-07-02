@@ -1,0 +1,4 @@
+#Fri Jul 20 18:35:54 CEST 2012
+param.adt_root=/hadoop/adt
+pig.script=index_bookings_file_with_elasticsearch_qvipkar1.pig
+type=pig

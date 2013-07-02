@@ -1,0 +1,4 @@
+#Thu Mar 28 11:47:53 CET 2013
+hadoop.home=hdfs\\cluster\\conf_tst-hadoopkarmashaqal-st.france.airfrance.fr
+type=pig
+command=explain -script D\:\\Workspace\\Workspace-BigData\\bigloupe\\java\\bigloupe-war\\src\\main\\webapp\\scheduler\\jobs\\filter\\filter.pig -param filterParam\=INDIV_SS -param filterValue\="fsdf" -param fileFiltered\=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro_FILTERED -param fileToFilter\=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS/r-00000.avro -out filter.pig_explained.txt

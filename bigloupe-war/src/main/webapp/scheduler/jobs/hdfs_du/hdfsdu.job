@@ -1,0 +1,6 @@
+#Fri Jul 20 18:35:54 CEST 2012
+param.input=fsimage-delimited-10.60.128.108.tsv
+param.output=hdfsdu.out
+pig.script=hdfsdu.pig
+type=pig
+

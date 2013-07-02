@@ -1,0 +1,711 @@
+<html>
+  <head>
+  	<link rel="Shortcut Icon" href="/resources/img/bigloupe-elephant-ico.png" />
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
+	<script type="text/javascript">
+		$('#specificjobTab a').click(function(e) {
+			e.preventDefault();
+			$(this).tab('show');
+		});
+	</script>
+    <title>User documentation</title>
+  </head>
+<body>
+
+	<div class="container">
+		<div id="row">
+			<div class="page-header">
+				<h1>User documentation</h1>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div id="row">
+				<div class="span3">
+					<ul class="nav nav-list">
+						<li>
+							<a href="#scheduler">Scheduler</a>
+							<ul>
+								<li><a href="#manageyourjob">Manage your jobs</a></li>
+								<li><a href="#manageyourjob">Declare your jobs</a></li>
+								<li><a href="#executeyourjob">Execute your jobs</a></li>
+								<li><a href="#changehadoopcluster">Change your Hadoop cluster</a></li>
+								<li><a href="#interestingjobs">Example of interesting jobs</a></li>
+							</ul>
+						</li>
+						<li><a href="#chart">Chart</a></li>
+							<ul>
+								<li><a href="#restapi">Rest API</a></li>
+								<li><a href="#curl">Request/Response Examples</a></li>
+							</ul>
+						<li><a href="#monitorpig">Collect informations during Apache Pig script execution</a></li>
+					</ul>
+				</div>
+
+				<div class="span9">
+
+
+					<section id="scheduler">
+						<div class="page-header">
+							<h1>Scheduler</h1>
+						</div>
+						
+						<h1><span id="manageyourjob">Manage your jobs</span></h1>
+						BigLoupe integrates all features from <a
+							href="http://data.linkedin.com/opensource/azkaban/documentation">LinkedIn
+							Azkaban scheduler</a>. Some additional jobs has been added :
+						Map-Reduce jobs, Apache Sqoop jobs, Indexation with ElasticSearch
+						jobs.
+
+						<h2><span id="declareyourjob">Declare a new job</span></h2>
+						Each jobs must be declared under
+						$BIGLOUPE_HOME/work/webapp/scheduler/jobs. Jobs can be organized
+						under sub-directories. A job is a file with extension .job and
+						contains properties file in the format key=value. Properties
+						change and depend of the type parameter. You have all generic job
+						types and associated properties in the following table : <br />
+						<ul class="nav nav-tabs" id="jobTab">
+							<li class="active"><a href="#commandjob" data-toggle="tab">Command</a>
+							</li>
+							<li><a href="#javaprocessjob" data-toggle="tab">Java
+									Process</a></li>
+							<li><a href="#mapreducejob" data-toggle="tab">Map Reduce</a>
+							</li>
+							<li><a href="#pigjob" data-toggle="tab">Pig</a></li>
+							<li><a href="#sqoopjob" data-toggle="tab">Sqoop</a></li>
+							<li><a href="#indexjob" data-toggle="tab">ElasticSearch</a>
+							</li>
+
+						</ul>
+
+						<div class="tab-content">
+
+							<div class="tab-pane active" id="commandjob">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>type</code></td>
+											<td>required</td>
+											<td>Command job</td>
+											<td><code>command</code></td>
+										</tr>
+										<tr>
+											<td><code>command</code></td>
+											<td>required</td>
+											<td>Specifies the command to execute.</td>
+											<td><code>ls -lh</code></td>
+										</tr>
+										<tr>
+											<td><code>
+													command.<i>n</i>
+												</code></td>
+											<td>optional</td>
+											<td>Defines additional commands that are run
+												sequentially after <code>command</code>.
+											</td>
+											<td><code>ls -lh</code></td>
+										</tr>
+										<tr>
+											<td><code>working.dir</code></td>
+											<td>optional</td>
+											<td>Specifies the directory in which the command is
+												invoked. The default working directory is the job's
+												directory.</td>
+											<td><code>/home/ejk</code></td>
+										</tr>
+										<tr>
+											<td><code>
+													env.<i>property</i>
+												</code></td>
+											<td>optional</td>
+											<td>Specifies environment variables that should be set
+												before running the command. <i>property</i> defines the name
+												of the environment variable, so env.VAR_NAME=VALUE creates
+												an environment variable $VAR_NAME and gives it the value of
+												VALUE.
+											</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="tab-pane" id="javaprocessjob">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>java.class</code></td>
+											<td>required</td>
+											<td>The class that contains the main function.</td>
+											<td><code>your.package.HelloWorld</code></td>
+										</tr>
+										<tr>
+											<td><code>classpath</code></td>
+											<td>optional</td>
+											<td>A comma-delimited list of JAR files and directories
+												to be added to the classpath. Each directory must ends with
+												"/" or "\", all librairies (jar files) in this directory
+												will be added. If not set, it adds all JARs in the working
+												directory to the classpath.</td>
+											<td><code>commons-io.jar,helloworld.jar</code></td>
+										</tr>
+										<tr>
+											<td><code>Xms</code></td>
+											<td>optional</td>
+											<td>The initial memory pool size to start the JVM. The
+												default is 64M.</td>
+											<td><code>64M</code></td>
+										</tr>
+										<tr>
+											<td><code>Xmx</code></td>
+											<td>optional</td>
+											<td>The maximum memory pool size. The default is 256M.</td>
+											<td><code>256M</code></td>
+										</tr>
+										<tr>
+											<td><code>main.args</code></td>
+											<td>optional</td>
+											<td>List of comma-delimited arguments to pass to the
+												Java main function.</td>
+											<td><code>arg1,arg2</code></td>
+										</tr>
+										<tr>
+											<td><code>jvm.args</code></td>
+											<td>optional</td>
+											<td>Arguments set for the JVM. This is not a list. The
+												entire string is passed intact as a VM argument.</td>
+											<td><code>-Dmyprop=test -Dhello=world</code></td>
+										</tr>
+										<tr>
+											<td><code>working.dir</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>command</code> jobs.
+											</td>
+											<td><code>/home/ejk</code></td>
+										</tr>
+										<tr>
+											<td><code>
+													env.<i>property</i>
+												</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>command</code> jobs.
+											</td>
+											<td><code>env.MY_ENV_VARIABLE=testVariable</code></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="tab-pane" id="mapreducejob">
+								Inherited from java job - all java job properties can be used.
+								This job use the main class
+								<code>org.apache.hadoop.util.RunJar</code>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>type</code></td>
+											<td>required</td>
+											<td>Map Reduce Job</td>
+											<td><code>map-reduce</code></td>
+										</tr>
+										<tr>
+											<td><code>classpath.ext</code></td>
+											<td>optional</td>
+											<td>A comma-delimited list of directories to be added to
+												the distributed classpath. Use option libjars (in <a
+												href="http://hadoop.apache.org/docs/r0.20.0/api/org/apache/hadoop/util/GenericOptionsParser.html">GenericOptionsParser</a>)
+												to uploads the given jars to the cluster and then makes them
+												available on the classpath for each mapper / reducer
+												instance
+											</td>
+											<td><code>lib,hadoop-client</code></td>
+										</tr>
+										<tr>
+											<td><code>jar</code></td>
+											<td>optional - if not present, java.class is mandatory</td>
+											<td>MapReduce jar file to run</td>
+											<td><code>lib/compactor-1.1.jar</code></td>
+										</tr>
+										<tr>
+											<td><code>java.class</code></td>
+											<td>optional - if not present, jar is mandatory</td>
+											<td>MapReduce java class file to run</td>
+											<td><code>org.apache.hadoop.tools.DistCp</code></td>
+										</tr>
+										<tr>
+											<td><code>jar.args</code></td>
+											<td>required</td>
+											<td>Arguments to pass to the main-class in the map
+												reduce jar file.</td>
+											<td><code>--input-format
+													org.apache.avro.mapred.AvroInputFormat --avro-input-schema
+													--output-format org.apache.avro.mapred.AvroOutputFormat
+													--compress none --verbose --tmp-dir /user/karma/demo</code></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="tab-pane" id="pigjob">
+								Inherited from map reduce job - all map reduce job properties
+								can be used. This job use the main class in pifg :
+								<code>org.apache.pig.Main</code>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>pig.script</code></td>
+											<td>optional</td>
+											<td>Specifies the pig script to run. If not set, it uses
+												the job name to find <code>
+													<i>jobname</i>.pig
+												</code>.
+											</td>
+											<td><code>pig-example.pig</code></td>
+										</tr>
+										<tr>
+											<td><code>udf.import.list</code></td>
+											<td>optional</td>
+											<td>Comma-delimited list of UDF imports</td>
+											<td><code>oink.,linkedin.udf.</code></td>
+										</tr>
+										<tr>
+											<td><code>
+													param.<i>name</i>
+												</code></td>
+											<td>optional</td>
+											<td>Used for parameter replacement to pass parameters
+												from your job into your pig script. Order is not guaranteed.
+												See the <a
+												href="http://hadoop.apache.org/pig/docs/r0.6.0/piglatin_ref2.html#Parameter+Substitution">pig
+													documentation</a> for information on using pig parameters in
+												your scripts.
+											</td>
+											<td><code>param.variable1=myvalue</code></td>
+										</tr>
+										<tr>
+											<td><code>paramfile</code></td>
+											<td>optional</td>
+											<td>Comma-delimited list of files used for variable
+												replacement in your pig script. Order is not guaranteed, and
+												param.<i>name</i> takes precedence.
+											</td>
+											<td><code>paramfile1,paramfile2</code></td>
+										</tr>
+										<tr>
+											<td><code>hadoop.job.ugi</code></td>
+											<td>optional</td>
+											<td>Sets the user name and group for Hadoop jobs.</td>
+											<td><code>hadoop,group</code></td>
+										</tr>
+										<tr>
+											<td><code>classpath</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>javaprocess</code> jobs.
+											</td>
+											<td><code>commons-io.jar,helloworld.jar</code></td>
+										</tr>
+										<tr>
+											<td><code>Xms</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>javaprocess</code> jobs.
+											</td>
+											<td><code>64M</code></td>
+										</tr>
+										<tr>
+											<td><code>Xmx</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>javaprocess</code> jobs.
+											</td>
+											<td><code>256M</code></td>
+										</tr>
+										<tr>
+											<td><code>jvm.args</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>javaprocess</code> jobs.
+											</td>
+											<td><code>-Dmyprop=test -Dhello=world</code></td>
+										</tr>
+										<tr>
+											<td><code>working.dir</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>command</code> jobs.
+											</td>
+											<td><code>/home/ejk</code></td>
+										</tr>
+										<tr>
+											<td><code>
+													env.<i>property</i>
+												</code></td>
+											<td>optional</td>
+											<td>Inherited from <code>command</code> jobs.
+											</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="tab-pane" id="sqoopjob">
+								Inherited from java job - all map reduce job properties can be
+								used. This job use the main class
+								<code>org.apache.sqoop.Sqoop</code>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>type</code></td>
+											<td>required</td>
+											<td>Job Type for SQOOP Job</td>
+											<td><code>sqoop</code></td>
+										</tr>
+										<tr>
+											<td><code>usage</code></td>
+											<td>optional</td>
+											<td>Usage of SQOOP (export/import)</td>
+											<td><code>export</code> to export from HDFS to RDBMS or
+												<code>import</code> to import from RDBMS to HDFS</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="tab-pane" id="indexjob">
+								Inherited from pig job. This job calls a specific pig file
+								<code>index_generic_avro_file_with_elasticsearch.pig</code>
+								to index avro file or directory.
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th>Property</th>
+											<th>Required?</th>
+											<th>Meaning</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td><code>type</code></td>
+											<td>required</td>
+											<td>Job Type for Elastic Search Job</td>
+											<td><code>indexfile</code></td>
+										</tr>
+										<tr>
+											<td><code>fileToIndex</code></td>
+											<td>required</td>
+											<td>File or directory to index</td>
+											<td>/yourpath/yourfile</td>
+										</tr>
+										<tr>
+											<td><code>index</code></td>
+											<td>optional</td>
+											<td>Index name in elasticsearch. Use first avro file
+												name if not specified</td>
+											<td>/yourpath/yourfile</td>
+										</tr>
+										<tr>
+											<td><code>elasticSearchDirectory</code></td>
+											<td>optional</td>
+											<td>Directory files where MAp-Reduce jobs could be found
+												ElasticSearch configurations. <span
+												class="label label-important">ElasticSearch must be
+													installed on each Hadoop Task Tracker with this option</span>
+											</td>
+											<td>/yourpath/yourfile</td>
+										</tr>
+									</tbody>
+								</table>
+
+								Example : if you want to index a file in hdfs called yourfile,
+								your job file must contain only two lines
+								<pre class="prettyprint">
+#Tue Jan 15 16:40:21 CET 2013
+fileToIndex=hdfs\://qvirkfs1.france.airfrance.fr\:3300/user/karma/hadoop/DBLive13-SVT/rsu/dco/bookingpddupdate/Final/YO_BKG_SEGS
+type=indexfile
+			</pre>
+							</div>
+
+						</div>
+						<!-- end tab-content -->
+
+						<h2><span id="executeyourjob">Execute your job</span></h2>
+						<div class="section">
+							You can execute your job either in BigLoupe Web application
+							either in standalone mode.
+							<ul class="nav nav-list">
+								<li><span class="label label-important">&nbsp;<i
+										class="icon-play-circle"></i>&nbsp;In BigLoupe Web Application
+								</span> : When your job file has been defined you can upload it in
+									BigLoupe (see screenshot) or copy your job in
+									$BIGLOUPE_HOME/work/webapp/scheduler/jobs.</li>
+								<p>
+									<br />
+									<img src="upload-job.png" width="50%" height="50%">
+								</p>
+								<p>A zip file must contain a job file (with extension job)
+									and can contain some librairies and some property files</p>
+								<li><span class="label label-important">&nbsp;<i
+										class="icon-play-circle"></i>&nbsp;In standalone mode
+								</span> : you can launch bigloupe-scheduler and specify with job you
+									want to execute. This mode helps you to declare your job</li>
+								<p>
+								<pre class="prettyprint">
+USAGE: java -jar bigloupe-scheduler-0.1.jar [options] job_name...
+Option                                  Description
+------                                  -----------
+-c, --config-dir $dir                  A configuration directory for jobs, if separate from the job directory.
+-h, --help                              Print usage information
+--ignore-deps                           Run only the specified job, ignoring dependencies
+-j, --job-dir $dir                     A directory in which to find job definitions.
+--log-dir $dir                         The directory to store log files.
+-o, --override key=val                An override property to be used instead of what is in the job
+
+		</pre>
+								</p>
+
+								Example : to launch a map-reduce job called compactor in
+								jobs/compactor directory :
+								<pre class="prettyprint">		
+java -jar bigloupe-scheduler-0.1.jar --job-dir jobs/compactor compactor
+</pre>
+								</p>
+								You can also us a command file (bash or bat) available in
+								bigloupe-scheduler distribution.
+
+							</ul>
+						</div>
+
+						
+						
+						<h2><span id="changehadoopcluster">Hadoop configuration</span></h2>
+						If you want to launch your job on another Hadoop cluster, you need to go on the top
+						left corner and to select your cluster
+
+						<h2><span id="interestingjobs">Examples of interesting jobs</span></h2>
+
+						<span class="alert">Distcp : copy files or directories
+							recursively</span><br />
+						<br />
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th>Property</th>
+									<th>Description</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td><code>type</code></td>
+									<td>Job of type map-reduce</td>
+									<td>map-reduce</td>
+								</tr>
+								<tr>
+									<td><code>hadoop.home</code></td>
+									<td>Your directoy where your hadoop configuration files
+										can be found (core-site.xml, hdfs-site.xml, mapred-site.xml)</td>
+									<td>hdfs/cluster/conf_xxxxxx</td>
+								</tr>
+								<tr>
+									<td><code>java.class</code></td>
+									<td>Map Reduce available in hadoop-tools-xxx.jar to copy
+										files and directories</td>
+									<td><code>org.apache.hadoop.tools.DistCp</code></td>
+								</tr>
+								<tr>
+									<td><code>jar.args</code></td>
+									<td>src directory and target directory</td>
+									<td>e.g. <code>hdfs://cluster1:3300/user/file1
+											hdfs://cluster2:3300/user/file2</code></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<span class="alert well">Merger-avro : merge 2 avro files
+							in a single JVM. Avro files must have a common avro schema (avsc)</span><br />
+						<br />
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th>Property</th>
+									<th>Description</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td><code>type</code></td>
+									<td>Job of java</td>
+									<td>javaprocess</td>
+								</tr>
+								<tr>
+									<td><code>hadoop.home</code></td>
+									<td>Your directoy where your hadoop configuration files
+										can be found (core-site.xml, hdfs-site.xml, mapred-site.xml)</td>
+									<td>hdfs/cluster/conf_xxxxxx</td>
+								</tr>
+								<tr>
+									<td><code>java.class</code></td>
+									<td>Main class to merge 2 avro files</td>
+									<td><code>crush.MergeAvroFiles</code></td>
+								</tr>
+								<tr>
+									<td><code>classpath</code></td>
+									<td>List of librairies : A comma-delimited list of JAR
+										files and directories to be added to the classpath. Each
+										directory must ends with "/" or "\", all librairies (jar
+										files) in this directory will be added. If not set, it adds
+										all JARs in the working directory to the classpath.</td>
+									<td><code>lib/</code></td>
+								</tr>
+								<tr>
+									<td><code>main.args</code></td>
+									<td>src directory, target directory</td>
+									<td>e.g. <code>hdfs://cluster1:3300/user/file1,hdfs://cluster2:3300/user/file2</code></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<span class="alert">Compactor : merge/compact 2 avro files
+							in Map/Reduce. Avro files must have a common avro schema (avsc)</span><br />
+						<br />
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th>Property</th>
+									<th>Description</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td><code>type</code></td>
+									<td>Map reduce</td>
+									<td>map-reduce</td>
+								</tr>
+								<tr>
+									<td><code>hadoop.home</code></td>
+									<td>Your directoy where your hadoop configuration files
+										can be found (core-site.xml, hdfs-site.xml, mapred-site.xml)</td>
+									<td>hdfs/cluster/conf_xxxxxx</td>
+								</tr>
+								<tr>
+									<td><code>jar</code></td>
+									<td>Jar class to launch by Hadoop jar</td>
+									<td><code>lib/compactor-1.1.jar</code></td>
+								</tr>
+								<tr>
+									<td><code>classpath.ext</code></td>
+									<td>List of librairies : A comma-delimited list of JAR
+										files and directories to be added to the classpath. Each
+										directory must ends with "/" or "\", all librairies (jar
+										files) in this directory will be added. If not set, it adds
+										all JARs in the working directory to the classpath.</td>
+									<td><code>./lib,./hadoop-client</code></td>
+								</tr>
+								<tr>
+									<td><code>jar.args</code></td>
+									<td>Specify input format, output format, compression, src
+										directory, target directory, filename</td>
+									<td>e.g. <code>
+											--input-format org.apache.avro.mapred.AvroInputFormat <br />--avro-input-schema
+											--output-format org.apache.avro.mapred.AvroOutputFormat <br />--compress
+											none --verbose <br />--tmp-dir /user/karma/ /srcdir/
+											/targetdir/ filename
+										</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<!-- end scheduler -->
+
+					<section id="chart">
+					<div class="page-header">
+						<h1>Chart</h1>
+					</div>
+					<h3>Server</h3>
+					<p>BigLoupe webserver integrates chart api to check availability of Hadoop clusters and to graph easily some
+					results after pig script execution.</p>
+					<p>By default, Bigloupe webserver listens all events from TCP port 2003. All events must be compatible to Graphite/Carbon format. You can also launch
+					BigLoupe chart server without all the complete bigloupe stack with this command :</p>
+								<pre class="prettyprint">
+usage: java -jar bigloupe-chart.jar [options]
+ -carbon_only         start TCP socket only for graphite/carbon events
+ -carbon_port <arg>   specify port for graphite/carbon events - (2003 by
+                      default)
+ -help                print this message
+ -statsd_only         start UDP socket only for statsd events
+ -statsd_port <arg>   specify port for statsD events - (2004 by default)
+
+		</pre>
+					<h3>Client</h3>
+					<p>BigLoupe webserver includes a REST API to receive graph events from Pig Scripts or from HTML pages in JSONP. As 
+					BigLoupe chart server, all requests to retreive data can also be received in Graphite JSON format (e.g. : 
+					/render?from=-70560minutes&&target=servers.hadoopnamenode_8005.heap.HeapMemoryUsage_committed&format=json)</p>				
+					<ul>
+						<li><span id="restapi"><a href="/api-docs/index.jsp">REST API</a></span></li>
+						<li><span id="curl"><a href="/api-docs/curl.jsp">Request/Response Examples</a></span></li>
+					</ul>
+					</section>
+
+					<section id="monitorpig">
+					<div class="page-header">
+						<h1>Collect informations during Apache Pig script execution</h1>
+					</div>
+					BigLoupe integrates 2 plugins compatible with Ambrose from Twitter. These plugins launched with your Apache Pig script collect information during Pig execution to graph Diagram (DAG).
+					Only Apache Pig 0.11.0 is supported. 
+					You have 2 different listeners :
+						<ul>
+							<li>EmbeddedAmbrosePigProgressNotificationListener : collects plan and job information from within a Pig runtime, store this information in memory. WebServer is launched at the starting of pig script to receive events.</li>
+							<li>BigLoupePigProgressNotificationListener : collects plan and job information from within a Pig runtime, sent this information to BigLoupe server to store in database. 
+							By default use BigLoupe http server is available at url http://localhost:9090. Use bigloupe.http.server property to change url</li>
+						</ul>
+					<p>
+<pre class="prettyprint">
+USAGE: pig -Dpig.notification.listener=org.bigloupe.web.monitor.pig.EmbeddedAmbrosePigProgressNotificationListener yourpig.pig
+</pre>
+<pre class="prettyprint">
+USAGE: pig -Dpig.notification.listener=org.bigloupe.web.monitor.pig.BigLoupePigProgressNotificationListener -Dbigloupe.http.server=http://yourbigloupe yourpig.pig
+</pre>		
+					
+					</p>
+					</section>
+
+				</div>
+				<!-- span9 -->
+
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- end container -->
+
+	</div>
+	<!-- end container -->
+</body>
+</html>

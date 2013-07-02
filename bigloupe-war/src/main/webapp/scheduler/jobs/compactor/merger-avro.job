@@ -1,0 +1,7 @@
+#Wed Aug 29 17:24:11 CEST 2012
+type=javaprocess
+classpath=lib/
+hadoop.home=hdfs/cluster/conf_qvirkfs1
+java.class=crush.MergeAvroFiles
+main.args=/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS,/user/karma/hadoop/DBLive13-08012013/rsu/dco/schedulestohistorize/130114/OUT/DFLBC/UPDYSDFLBCCHROS-MERGED
+env.crushType=TEXT

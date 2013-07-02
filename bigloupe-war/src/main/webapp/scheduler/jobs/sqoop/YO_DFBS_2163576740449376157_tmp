@@ -1,0 +1,24 @@
+#Tue Aug 28 10:29:55 CEST 2012
+azkaban.flow.start.timezone=Europe/Paris
+type=sqoop
+azkaban.flow.uuid=7449d347-7fc3-443e-90cc-fb752763a759
+jdbcConnection=KARMAQAL
+azkaban.flow.start.timestamp=2012-08-28T10\:29\:55.862+02\:00
+jdbcUser=KARMA_O
+jdbcPassword=KARMA_ADMIN
+azkaban.flow.start.milliseconds=862
+azkaban.flow.start.hour=10
+hdfsTargetDir=hdfs\://qvipkar5.france.airfrance.fr\:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2
+azkaban.flow.id=41
+verbose=true
+jdbcWhereClause=DEPDAT\=to_date('120701','YYMMDD')
+azkaban.flow.start.year=2012
+azkaban.flow.start.seconds=55
+azkaban.flow.start.month=08
+avroDataFile=true
+avscJarFile=KarmaSchemaAvroDatabase-0.14.2.jar
+azkaban.flow.start.minute=29
+jdbcTable=YO_DFBS
+usage=import
+azkaban.flow.start.day=28
+numberMappers=1

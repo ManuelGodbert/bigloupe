@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?><!-- Put site-specific 
+	property overrides in this file. -->
+<configuration>
+	<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/tmp</value>
+		<description>A base for other temporary directories.</description>
+	</property>
+
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://lh-hadoopkarmaqua-st.france.airfrance.fr:3300</value>
+	</property>
+	<property>
+		<name>dfs.datanode.max.xceivers</name>
+		<value>55096</value>
+	</property>
+	<property>
+		<name>dfs.datanode.max.xcievers</name>
+		<value>55096</value>
+	</property>
+
+	<!-- <property> <name>io.file.buffer.size</name> <value>231072</value> </property> 
+		<property> <name>io.compression.codecs</name> <value>com.hadoop.compression.lzo.LzoCodec,com.hadoop.compression.lzo.LzopCodec</value> 
+		<description>A list of the compression codec classes that can be used for 
+		compression/decompression.</description> </property> -->
+</configuration>

@@ -1,0 +1,222 @@
+<%@page import="org.bigloupe.web.BigLoupeConfiguration"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#usage').change(function() {
+			$.ajax({
+				type : 'GET',
+				url : '${request.contextPath}/sqoopParameters.html',
+				dataType : 'html',
+				data : $(this).serialize(),
+				success : function(html, textStatus) {
+					$('#sqoopParameters').html(html);
+				},
+				error : function(xhr, textStatus, errorThrown) {
+
+				}
+			});
+		});
+
+	});
+<%-- Fill jdbc tables --%>
+	function refreshTables() {
+		$("select#jdbcTable").load(
+				"${request.contextPath}/sqoopJdbcTables.html?jdbcConnection"
+						+ $("#jdbcConnection").val(), {
+					id : $(this).val(),
+					ajax : 'true'
+				});
+	}
+	
+/* 	function checkAndPost() {
+		$('formSqoop').submit(function() {
+			  alert('Handler for .submit() called.');
+			  return true;
+			});
+	} */
+</script>
+
+<div class="row">
+	<div class="page-header">
+		<h2>SQOOP Launcher</h2>
+	</div>
+</div>
+
+<div class="row-fluid">
+
+	<div class="well">
+		<form id="formSqoop" method="POST" action="${request.contextPath}/sqoopSaveJob.html" enctype="multipart/form-data">
+			<legend>Sqoop Configuration</legend>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Job name</label>
+				</div>
+				<div class="span10">
+					<input type="text" name="jobName" class="input-xlarge"
+						value="${jobDescriptor.id}" style="height: 30px" />
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Job path</label>
+				</div>
+				<div class="span10">
+					<input type="text" name="jobPath" value="${jobDescriptor.path}"
+						class="input-xlarge" style="height: 30px" />
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Job type</label>
+				</div>
+				<div class="span10">
+					<input type="text" readonly="readonly" name="jobType" value="sqoop"
+						class="input-xlarge" style="height: 30px" />
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Usage</label>
+				</div>
+				<div class="span12">
+					<select id="usage" name="usage" style="width: 430px">
+						<c:set var="import" value="import" />
+						<c:set var="export" value="export" />
+						<option name="import" value="import"
+							<c:if test="${sqoopJob.usage == import}">selected="selected" 
+							</c:if>>
+							import -- <em>import data from a relational database system
+								into HDFS</em>
+						</option>
+						<option name="export" value="export"
+							<c:if test="${sqoopJob.usage == export}">selected="selected" 
+							</c:if>>
+							export -- <em>export data from HDFS to a relational database
+								system</em>
+						</option>
+					</select>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>JDBC Connection</label>
+				</div>
+				<div class="span12">
+					<select id="jdbcConnection" name="jdbcConnection"
+						style="width: 430px">
+						<c:forEach var="jdbcConnection" items="${jdbcConnection}">
+							<option name="${jdbcConnection.key}"
+								value="${jdbcConnection.value}"
+								<c:if test="${sqoopJob.jdbcConnection == jdbcConnection.key}">selected="selected" 
+							</c:if>>${jdbcConnection.key}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span2">
+					<label>JDBC User</label>
+				</div>
+				<div class="span10">
+					<input type="text" name="jdbcUser" value="${sqoopJob.jdbcUser}"
+						class="input-xlarge" style="height: 30px" />
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span2">
+					<label>JDBC Password</label>
+				</div>
+				<div class="span10">
+					<input type="text" name="jdbcPassword"
+						value="${sqoopJob.jdbcPassword}" class="input-xlarge"
+						style="height: 30px" />
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span2">
+					<label>JDBC Table</label>
+				</div>
+				<%-- FIX ME--%>
+				<c:if test="${empty sqoopJob.jdbcTable}">
+					<div class="span">
+						<a class="btn" href="javascript:refreshTables()"><i
+							class="icon-refresh"></i></a>
+					</div>
+				</c:if>
+				<div class="span10">
+					<c:choose>
+						<c:when test="${empty sqoopJob.jdbcTable}">
+							<input type="text" name="jdbcTable" value="${sqoopJob.jdbcTable}"
+								class="input-xlarge" style="height: 30px" />
+						</c:when>
+						<c:otherwise>
+							<%-- FIXME --%>
+							<%--
+							<select id="jdbcTable" name="jdbcTable" style="width: 430px">
+							</select>
+						 --%>
+							<input type="text" name="jdbcTable" value="${sqoopJob.jdbcTable}"
+								class="input-xlarge" style="height: 30px" />
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</div>
+
+
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Delete JAVA file generated by SQOOP</label>
+				</div>
+				<div class="span10">
+					<input type="checkbox" name="deleteJavaMappingFile" value="true" class="input-xlarge"
+						<c:if test="${sqoopJob.deleteJavaMappingFile}">checked="checked" 
+							</c:if>
+						style="height: 30px" />
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Verbose (--verbose)</label>
+				</div>
+				<div class="span10">
+					<input type="checkbox" name="verbose" value="true" class="input-xlarge"
+						<c:if test="${sqoopJob.verbose}">checked="checked" 
+							</c:if>
+						style="height: 30px" />
+				</div>
+			</div>
+
+			<%-- div relates to usage --%>
+			<div id="sqoopParameters" class="row-fluid">
+				<c:choose>
+					<c:when test="${sqoopJob.usage == export}">
+						<jsp:include page="sqoop-export.jsp"></jsp:include>
+					</c:when>
+					<c:otherwise>
+						<jsp:include page="sqoop-import.jsp"></jsp:include>
+					</c:otherwise>
+				</c:choose>
+			</div>
+
+			<div class="row-fluid">
+				<button id="save" class="btn btn-primary btn-large span4">Save
+					SQOOP Configuration</button>
+				<c:if test="${not empty jobDescriptor.id}">
+				<a
+					href="${request.contextPath}/scheduler/jobDetail.html?id=${jobDescriptor.id}" class="btn btn-info span4">See Job Definition</a>
+				</c:if>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+

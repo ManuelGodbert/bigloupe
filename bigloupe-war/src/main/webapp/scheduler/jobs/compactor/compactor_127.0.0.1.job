@@ -1,0 +1,6 @@
+#Thu Feb 14 18:32:31 CET 2013
+classpath.ext=./lib,./hadoop-client
+type=map-reduce
+jar.args=--input-format org.apache.avro.mapred.AvroInputFormat --avro-input-schema --output-format org.apache.avro.mapred.AvroOutputFormat --compress none --verbose --tmp-dir /user/karma/ /tmp/data/crush /tmp/data/crush_COMPACTED COMPACTED
+hadoop.cluster=hdfs/cluster/conf_filesystem
+jar=lib/compactor-1.1.jar

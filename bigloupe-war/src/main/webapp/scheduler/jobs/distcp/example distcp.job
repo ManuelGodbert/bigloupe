@@ -1,0 +1,4 @@
+type=map-reduce
+hadoop.home=hdfs/cluster/conf_lh-hadoopkarmaprod-st
+java.class=org.apache.hadoop.tools.DistCp
+jar.args=hdfs://lh-hadoopkarmaprod-st.france.airfrance.fr:3300/user/karma/hadoop/DBLive13-SVT/rsu/dco/bookingpddupdate/Final/YO_BKG_SEGS/part-00000.avro hdfs://qvirkfs1.france.airfrance.fr:3300/user/karma/tmp

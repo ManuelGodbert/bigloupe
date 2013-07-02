@@ -1,0 +1,1 @@
+[21 mars 2013 09:37:44] [qtp3317565-28] 56376262 INFO  (org.bigloupe.web.BigLoupeConfiguration:248) - HADOOP clusters configuration directory doen't exist. Check your configuration :'D:\Workspace\Workspace-BigData\bigloupe\java\bigloupe-chart\src\main\webapp\hdfs\cluster

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?><!-- Put site-specific 
+	property overrides in this file. --><configuration>
+	<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/tmp</value>
+		<description>A base for other temporary directories.</description>
+	</property>
+
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://tst-hadoopkarmarct-st.france.airfrance.fr:3300</value>
+	</property>
+	<property>
+		<name>dfs.datanode.max.xceivers</name>
+		<value>55096</value>
+	</property>
+	<property>
+		<name>dfs.datanode.max.xcievers</name>
+		<value>55096</value>
+	</property>
+
+</configuration>

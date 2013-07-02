@@ -1,0 +1,5 @@
+#Tue Jan 15 16:40:21 CET 2013
+dependencies=DBLive13-SVT_rsu_dco_external_feed_pdd_130131
+fileToIndex=hdfs\://qvirkfs1.france.airfrance.fr\:3300/user/karma/hadoop/DBLive13-${now}/rsu/dco/bookingpddupdate/Updated/DFB/YO_BKG_SEGS/UPD_BKG_SEGS
+type=indexfile
+

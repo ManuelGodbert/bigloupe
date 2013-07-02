@@ -1,0 +1,2 @@
+mvn deploy:deploy-file -Durl=file://D:/Workspace/Workspace-BigData/bigloupe/java/bigloupe-war/repository/ -Dfile="lib\ojdbc6-11.2.0.3.jar" -DgroupId=com.oracle -DartifactId=ojdbc6 -Dpackaging=jar -Dversion=11.2.0.3
+mvn deploy:deploy-file -Durl=file://D:/Workspace/Workspace-BigData/bigloupe/java/bigloupe-war/repository/ -Dfile="lib\pig-0.11.0.jar" -DgroupId=org.apache.pig -DartifactId=pig -Dpackaging=jar -Dversion=0.11.0

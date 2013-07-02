@@ -1,0 +1,1042 @@
+2012/08/28 15:47:50.967 +0200 WARN [SqoopTool] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 15:47:51.076 +0200 WARN [BaseSqoopTool] [] Setting your password on the command-line is insecure. Consider using -P instead.
+2012/08/28 15:47:51.076 +0200 INFO [ImportTool] [] Use librairy YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar to retrieve Avro schema instead of generating it.
+2012/08/28 15:47:51.076 +0200 WARN [ConnFactory] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 15:47:51.092 +0200 INFO [SqlManager] [] Using default fetchSize of 1000
+2012/08/28 15:47:51.435 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 15:47:51.498 +0200 INFO [CodeGenTool] [] Beginning code generation
+2012/08/28 15:47:51.513 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 15:47:51.513 +0200 INFO [SqlManager] [] Executing SQL statement: SELECT t.* FROM YO_DFBS t WHERE 1=0
+2012/08/28 15:47:51.529 +0200 INFO [CompilationManager] [] HADOOP_HOME is D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\pig\cluster
+2012/08/28 15:47:51.529 +0200 WARN [CompilationManager] [] HADOOP_HOME appears empty or missing
+2012/08/28 15:47:52.154 +0200 ERROR [CompilationManager] [] Could not rename \tmp\sqoop-M329997\compile\7cdb48397458a947fdfe8351fb237d96\YO_DFBS.java to D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java
+java.io.IOException: Destination 'D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java' already exists
+	at org.apache.commons.io.FileUtils.moveFile(FileUtils.java:1811)
+	at org.apache.sqoop.orm.CompilationManager.compile(CompilationManager.java:227)
+	at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:83)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:377)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+2012/08/28 15:47:52.154 +0200 INFO [CompilationManager] [] Writing jar file: \tmp\sqoop-M329997\compile\7cdb48397458a947fdfe8351fb237d96\YO_DFBS.jar
+2012/08/28 15:47:52.170 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 15:47:52.170 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 15:47:52.185 +0200 INFO [ImportJobBase] [] Beginning import of YO_DFBS
+2012/08/28 15:47:52.248 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 15:47:52.263 +0200 INFO [DataDrivenImportJob] [] 
+Récupération du schéma dans le jar YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar
+2012/08/28 15:47:52.467 +0200 INFO [DataDrivenImportJob] [] 
+{
+  "type" : "record",
+  "name" : "YO_DFBS",
+  "namespace" : "com.afklm.karma.ymod",
+  "doc" : "$Id: bf3eab3594c22fccc3f0b56e88e98d2050654298 $, Sqoop Avro Schema Generation of YO_DFBS",
+  "fields" : [ {
+    "name" : "DFLOW_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFLOW_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "RNG_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "RNG_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_NOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEPDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEPDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "BKG_PNR_ID",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_PNR_ID",
+    "sqlType" : "12"
+  }, {
+    "name" : "NB_PAX",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_PAX",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_SH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_SH",
+    "sqlType" : "2"
+  }, {
+    "name" : "UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "IS_LOCAL",
+    "type" : [ "int", "null" ],
+    "columnName" : "IS_LOCAL",
+    "sqlType" : "2"
+  }, {
+    "name" : "MASTER_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "MASTER_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "PCT_NAMES",
+    "type" : [ "double", "null" ],
+    "columnName" : "PCT_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEMDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEMDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "REG_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "BOARDED",
+    "type" : [ "int", "null" ],
+    "columnName" : "BOARDED",
+    "sqlType" : "2"
+  }, {
+    "name" : "TRUEOD_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "TRUEOD_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "BKG_CREDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_CREDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "CXLRATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "CXLRATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "TKT_DATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "TKT_DATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "GRP_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "GRP_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "OUTBOUND_FLOW_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "OUTBOUND_FLOW_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "FLOW_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "FLOW_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "DENIED_BOARDING",
+    "type" : [ "int", "null" ],
+    "columnName" : "DENIED_BOARDING",
+    "sqlType" : "2"
+  }, {
+    "name" : "SSCAP_CHECK_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "SSCAP_CHECK_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "CLASS_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CLASS_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "CAB_LVL_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CAB_LVL_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "SHUP_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "FINALIZATION_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "FINALIZATION_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "DFB_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFB_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "POS",
+    "type" : [ "string", "null" ],
+    "columnName" : "POS",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE_UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "SHUP_RATE_UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "POO",
+    "type" : [ "string", "null" ],
+    "columnName" : "POO",
+    "sqlType" : "12"
+  }, {
+    "name" : "INVOL_CHGDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "INVOL_CHGDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "NB_NAMES",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "GHOST_BKG",
+    "type" : [ "int", "null" ],
+    "columnName" : "GHOST_BKG",
+    "sqlType" : "2"
+  }, {
+    "name" : "CXLDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "CXLDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "NOSH_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "NOSH_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_NOSH",
+    "sqlType" : "2"
+  } ],
+  "tableName" : "YO_DFBS"
+}
+2012/08/28 15:47:52.482 +0200 WARN [JobBase] [] SQOOP_HOME is unset. May not be able to find all job dependencies.
+2012/08/28 15:47:53.092 +0200 ERROR [ImportTool] [] Encountered IOException running import job: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://qvipkar5.france.airfrance.fr:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2 already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:132)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:872)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:833)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:396)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1127)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:833)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:476)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:506)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:119)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:179)
+	at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:413)
+	at org.apache.sqoop.manager.OracleManager.importTable(OracleManager.java:380)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:390)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+
+2012/08/28 16:21:21.921 +0200 WARN [SqoopTool] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 16:21:22.030 +0200 WARN [BaseSqoopTool] [] Setting your password on the command-line is insecure. Consider using -P instead.
+2012/08/28 16:21:22.030 +0200 INFO [ImportTool] [] Use librairy YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar to retrieve Avro schema instead of generating it.
+2012/08/28 16:21:22.030 +0200 WARN [ConnFactory] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 16:21:22.046 +0200 INFO [SqlManager] [] Using default fetchSize of 1000
+2012/08/28 16:21:22.468 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 16:21:22.546 +0200 INFO [CodeGenTool] [] Beginning code generation
+2012/08/28 16:21:22.546 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 16:21:22.546 +0200 INFO [SqlManager] [] Executing SQL statement: SELECT t.* FROM YO_DFBS t WHERE 1=0
+2012/08/28 16:21:22.577 +0200 INFO [CompilationManager] [] HADOOP_HOME is D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\pig\cluster
+2012/08/28 16:21:22.577 +0200 WARN [CompilationManager] [] HADOOP_HOME appears empty or missing
+2012/08/28 16:21:23.437 +0200 ERROR [CompilationManager] [] Could not rename \tmp\sqoop-M329997\compile\26871415da30c17dcdd4a8b81110e771\YO_DFBS.java to D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java
+java.io.IOException: Destination 'D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java' already exists
+	at org.apache.commons.io.FileUtils.moveFile(FileUtils.java:1811)
+	at org.apache.sqoop.orm.CompilationManager.compile(CompilationManager.java:227)
+	at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:83)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:377)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+2012/08/28 16:21:23.437 +0200 INFO [CompilationManager] [] Writing jar file: \tmp\sqoop-M329997\compile\26871415da30c17dcdd4a8b81110e771\YO_DFBS.jar
+2012/08/28 16:21:23.437 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 16:21:23.452 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 16:21:23.452 +0200 INFO [ImportJobBase] [] Beginning import of YO_DFBS
+2012/08/28 16:21:23.530 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 16:21:23.546 +0200 INFO [DataDrivenImportJob] [] 
+Récupération du schéma dans le jar YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar
+2012/08/28 16:21:23.796 +0200 INFO [DataDrivenImportJob] [] 
+{
+  "type" : "record",
+  "name" : "YO_DFBS",
+  "namespace" : "com.afklm.karma.ymod",
+  "doc" : "$Id: bf3eab3594c22fccc3f0b56e88e98d2050654298 $, Sqoop Avro Schema Generation of YO_DFBS",
+  "fields" : [ {
+    "name" : "DFLOW_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFLOW_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "RNG_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "RNG_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_NOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEPDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEPDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "BKG_PNR_ID",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_PNR_ID",
+    "sqlType" : "12"
+  }, {
+    "name" : "NB_PAX",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_PAX",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_SH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_SH",
+    "sqlType" : "2"
+  }, {
+    "name" : "UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "IS_LOCAL",
+    "type" : [ "int", "null" ],
+    "columnName" : "IS_LOCAL",
+    "sqlType" : "2"
+  }, {
+    "name" : "MASTER_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "MASTER_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "PCT_NAMES",
+    "type" : [ "double", "null" ],
+    "columnName" : "PCT_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEMDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEMDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "REG_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "BOARDED",
+    "type" : [ "int", "null" ],
+    "columnName" : "BOARDED",
+    "sqlType" : "2"
+  }, {
+    "name" : "TRUEOD_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "TRUEOD_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "BKG_CREDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_CREDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "CXLRATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "CXLRATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "TKT_DATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "TKT_DATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "GRP_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "GRP_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "OUTBOUND_FLOW_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "OUTBOUND_FLOW_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "FLOW_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "FLOW_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "DENIED_BOARDING",
+    "type" : [ "int", "null" ],
+    "columnName" : "DENIED_BOARDING",
+    "sqlType" : "2"
+  }, {
+    "name" : "SSCAP_CHECK_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "SSCAP_CHECK_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "CLASS_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CLASS_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "CAB_LVL_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CAB_LVL_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "SHUP_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "FINALIZATION_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "FINALIZATION_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "DFB_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFB_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "POS",
+    "type" : [ "string", "null" ],
+    "columnName" : "POS",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE_UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "SHUP_RATE_UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "POO",
+    "type" : [ "string", "null" ],
+    "columnName" : "POO",
+    "sqlType" : "12"
+  }, {
+    "name" : "INVOL_CHGDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "INVOL_CHGDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "NB_NAMES",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "GHOST_BKG",
+    "type" : [ "int", "null" ],
+    "columnName" : "GHOST_BKG",
+    "sqlType" : "2"
+  }, {
+    "name" : "CXLDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "CXLDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "NOSH_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "NOSH_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_NOSH",
+    "sqlType" : "2"
+  } ],
+  "tableName" : "YO_DFBS"
+}
+2012/08/28 16:21:23.812 +0200 WARN [JobBase] [] SQOOP_HOME is unset. May not be able to find all job dependencies.
+2012/08/28 16:21:24.546 +0200 ERROR [ImportTool] [] Encountered IOException running import job: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://qvipkar5.france.airfrance.fr:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2 already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:132)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:872)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:833)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:396)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1127)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:833)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:476)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:506)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:119)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:179)
+	at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:413)
+	at org.apache.sqoop.manager.OracleManager.importTable(OracleManager.java:380)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:390)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+
+2012/08/28 18:32:46.071 +0200 WARN [SqoopTool] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 18:32:46.181 +0200 WARN [BaseSqoopTool] [] Setting your password on the command-line is insecure. Consider using -P instead.
+2012/08/28 18:32:46.181 +0200 INFO [ImportTool] [] Use librairy YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar to retrieve Avro schema instead of generating it.
+2012/08/28 18:32:46.181 +0200 WARN [ConnFactory] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 18:32:46.196 +0200 INFO [SqlManager] [] Using default fetchSize of 1000
+2012/08/28 18:32:46.524 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:32:46.603 +0200 INFO [CodeGenTool] [] Beginning code generation
+2012/08/28 18:32:46.603 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:32:46.603 +0200 INFO [SqlManager] [] Executing SQL statement: SELECT t.* FROM YO_DFBS t WHERE 1=0
+2012/08/28 18:32:46.634 +0200 INFO [CompilationManager] [] HADOOP_HOME is D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\pig\cluster
+2012/08/28 18:32:46.634 +0200 WARN [CompilationManager] [] HADOOP_HOME appears empty or missing
+2012/08/28 18:32:47.384 +0200 ERROR [CompilationManager] [] Could not rename \tmp\sqoop-M329997\compile\2718a7ae7453c47ab6dd69e7ec6f6c57\YO_DFBS.java to D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java
+java.io.IOException: Destination 'D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java' already exists
+	at org.apache.commons.io.FileUtils.moveFile(FileUtils.java:1811)
+	at org.apache.sqoop.orm.CompilationManager.compile(CompilationManager.java:227)
+	at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:83)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:377)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+2012/08/28 18:32:47.384 +0200 INFO [CompilationManager] [] Writing jar file: \tmp\sqoop-M329997\compile\2718a7ae7453c47ab6dd69e7ec6f6c57\YO_DFBS.jar
+2012/08/28 18:32:47.400 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:32:47.415 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:32:47.415 +0200 INFO [ImportJobBase] [] Beginning import of YO_DFBS
+2012/08/28 18:32:47.493 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:32:47.509 +0200 INFO [DataDrivenImportJob] [] 
+Récupération du schéma dans le jar YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar
+2012/08/28 18:32:47.712 +0200 INFO [DataDrivenImportJob] [] 
+{
+  "type" : "record",
+  "name" : "YO_DFBS",
+  "namespace" : "com.afklm.karma.ymod",
+  "doc" : "$Id: bf3eab3594c22fccc3f0b56e88e98d2050654298 $, Sqoop Avro Schema Generation of YO_DFBS",
+  "fields" : [ {
+    "name" : "DFLOW_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFLOW_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "RNG_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "RNG_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_NOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEPDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEPDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "BKG_PNR_ID",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_PNR_ID",
+    "sqlType" : "12"
+  }, {
+    "name" : "NB_PAX",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_PAX",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_SH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_SH",
+    "sqlType" : "2"
+  }, {
+    "name" : "UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "IS_LOCAL",
+    "type" : [ "int", "null" ],
+    "columnName" : "IS_LOCAL",
+    "sqlType" : "2"
+  }, {
+    "name" : "MASTER_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "MASTER_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "PCT_NAMES",
+    "type" : [ "double", "null" ],
+    "columnName" : "PCT_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEMDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEMDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "REG_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "BOARDED",
+    "type" : [ "int", "null" ],
+    "columnName" : "BOARDED",
+    "sqlType" : "2"
+  }, {
+    "name" : "TRUEOD_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "TRUEOD_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "BKG_CREDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_CREDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "CXLRATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "CXLRATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "TKT_DATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "TKT_DATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "GRP_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "GRP_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "OUTBOUND_FLOW_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "OUTBOUND_FLOW_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "FLOW_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "FLOW_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "DENIED_BOARDING",
+    "type" : [ "int", "null" ],
+    "columnName" : "DENIED_BOARDING",
+    "sqlType" : "2"
+  }, {
+    "name" : "SSCAP_CHECK_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "SSCAP_CHECK_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "CLASS_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CLASS_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "CAB_LVL_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CAB_LVL_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "SHUP_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "FINALIZATION_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "FINALIZATION_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "DFB_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFB_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "POS",
+    "type" : [ "string", "null" ],
+    "columnName" : "POS",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE_UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "SHUP_RATE_UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "POO",
+    "type" : [ "string", "null" ],
+    "columnName" : "POO",
+    "sqlType" : "12"
+  }, {
+    "name" : "INVOL_CHGDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "INVOL_CHGDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "NB_NAMES",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "GHOST_BKG",
+    "type" : [ "int", "null" ],
+    "columnName" : "GHOST_BKG",
+    "sqlType" : "2"
+  }, {
+    "name" : "CXLDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "CXLDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "NOSH_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "NOSH_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_NOSH",
+    "sqlType" : "2"
+  } ],
+  "tableName" : "YO_DFBS"
+}
+2012/08/28 18:32:47.712 +0200 WARN [JobBase] [] SQOOP_HOME is unset. May not be able to find all job dependencies.
+2012/08/28 18:32:51.743 +0200 ERROR [ImportTool] [] Encountered IOException running import job: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://qvipkar5.france.airfrance.fr:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2 already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:132)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:872)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:833)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:396)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1127)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:833)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:476)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:506)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:119)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:179)
+	at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:413)
+	at org.apache.sqoop.manager.OracleManager.importTable(OracleManager.java:380)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:390)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+
+2012/08/28 18:45:27.273 +0200 WARN [SqoopTool] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 18:45:27.383 +0200 WARN [BaseSqoopTool] [] Setting your password on the command-line is insecure. Consider using -P instead.
+2012/08/28 18:45:27.383 +0200 INFO [ImportTool] [] Use librairy YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar to retrieve Avro schema instead of generating it.
+2012/08/28 18:45:27.383 +0200 WARN [ConnFactory] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 18:45:27.398 +0200 INFO [SqlManager] [] Using default fetchSize of 1000
+2012/08/28 18:45:27.789 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:45:27.852 +0200 INFO [CodeGenTool] [] Beginning code generation
+2012/08/28 18:45:27.867 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:45:27.867 +0200 INFO [SqlManager] [] Executing SQL statement: SELECT t.* FROM YO_DFBS t WHERE 1=0
+2012/08/28 18:45:27.883 +0200 INFO [CompilationManager] [] HADOOP_HOME is D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\pig\cluster
+2012/08/28 18:45:27.883 +0200 WARN [CompilationManager] [] HADOOP_HOME appears empty or missing
+2012/08/28 18:45:28.695 +0200 ERROR [CompilationManager] [] Could not rename \tmp\sqoop-M329997\compile\027977cce72ade9c8a9154d10d764487\YO_DFBS.java to D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java
+java.io.IOException: Destination 'D:\Workspace\Workspace-KARMA\websolr\src\main\webapp\scheduler\jobs\sqoop\.\YO_DFBS.java' already exists
+	at org.apache.commons.io.FileUtils.moveFile(FileUtils.java:1811)
+	at org.apache.sqoop.orm.CompilationManager.compile(CompilationManager.java:227)
+	at org.apache.sqoop.tool.CodeGenTool.generateORM(CodeGenTool.java:83)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:377)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+2012/08/28 18:45:28.695 +0200 INFO [CompilationManager] [] Writing jar file: \tmp\sqoop-M329997\compile\027977cce72ade9c8a9154d10d764487\YO_DFBS.jar
+2012/08/28 18:45:28.711 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:45:28.727 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:45:28.727 +0200 INFO [ImportJobBase] [] Beginning import of YO_DFBS
+2012/08/28 18:45:28.805 +0200 INFO [OracleManager] [] Time zone has been set to GMT
+2012/08/28 18:45:28.805 +0200 INFO [DataDrivenImportJob] [] 
+Récupération du schéma dans le jar YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar
+2012/08/28 18:45:28.977 +0200 INFO [DataDrivenImportJob] [] 
+{
+  "type" : "record",
+  "name" : "YO_DFBS",
+  "namespace" : "com.afklm.karma.ymod",
+  "doc" : "$Id: bf3eab3594c22fccc3f0b56e88e98d2050654298 $, Sqoop Avro Schema Generation of YO_DFBS",
+  "fields" : [ {
+    "name" : "DFLOW_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFLOW_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "RNG_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "RNG_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_NOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEPDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEPDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "BKG_PNR_ID",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_PNR_ID",
+    "sqlType" : "12"
+  }, {
+    "name" : "NB_PAX",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_PAX",
+    "sqlType" : "2"
+  }, {
+    "name" : "REG_SH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_SH",
+    "sqlType" : "2"
+  }, {
+    "name" : "UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "IS_LOCAL",
+    "type" : [ "int", "null" ],
+    "columnName" : "IS_LOCAL",
+    "sqlType" : "2"
+  }, {
+    "name" : "MASTER_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "MASTER_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "PCT_NAMES",
+    "type" : [ "double", "null" ],
+    "columnName" : "PCT_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "DEMDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "DEMDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "REG_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "REG_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "BOARDED",
+    "type" : [ "int", "null" ],
+    "columnName" : "BOARDED",
+    "sqlType" : "2"
+  }, {
+    "name" : "TRUEOD_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "TRUEOD_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "BKG_CREDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "BKG_CREDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "CXLRATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "CXLRATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "TKT_DATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "TKT_DATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "GRP_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "GRP_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_GOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_GOSH",
+    "sqlType" : "2"
+  }, {
+    "name" : "OUTBOUND_FLOW_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "OUTBOUND_FLOW_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "FLOW_LOWEST_CLS_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "FLOW_LOWEST_CLS_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "DENIED_BOARDING",
+    "type" : [ "int", "null" ],
+    "columnName" : "DENIED_BOARDING",
+    "sqlType" : "2"
+  }, {
+    "name" : "SSCAP_CHECK_IND",
+    "type" : [ "int", "null" ],
+    "columnName" : "SSCAP_CHECK_IND",
+    "sqlType" : "2"
+  }, {
+    "name" : "CLASS_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CLASS_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "CAB_LVL_COMBI",
+    "type" : [ "string", "null" ],
+    "columnName" : "CAB_LVL_COMBI",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "SHUP_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "FINALIZATION_DAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "FINALIZATION_DAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "DFB_ID",
+    "type" : [ "long", "null" ],
+    "columnName" : "DFB_ID",
+    "sqlType" : "2"
+  }, {
+    "name" : "POS",
+    "type" : [ "string", "null" ],
+    "columnName" : "POS",
+    "sqlType" : "12"
+  }, {
+    "name" : "SHUP_RATE_UPDDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "SHUP_RATE_UPDDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "POO",
+    "type" : [ "string", "null" ],
+    "columnName" : "POO",
+    "sqlType" : "12"
+  }, {
+    "name" : "INVOL_CHGDAT",
+    "type" : [ "string", "null" ],
+    "columnName" : "INVOL_CHGDAT",
+    "sqlType" : "93"
+  }, {
+    "name" : "NB_NAMES",
+    "type" : [ "int", "null" ],
+    "columnName" : "NB_NAMES",
+    "sqlType" : "2"
+  }, {
+    "name" : "GHOST_BKG",
+    "type" : [ "int", "null" ],
+    "columnName" : "GHOST_BKG",
+    "sqlType" : "2"
+  }, {
+    "name" : "CXLDATETIME",
+    "type" : [ "string", "null" ],
+    "columnName" : "CXLDATETIME",
+    "sqlType" : "93"
+  }, {
+    "name" : "NOSH_RATE",
+    "type" : [ "double", "null" ],
+    "columnName" : "NOSH_RATE",
+    "sqlType" : "2"
+  }, {
+    "name" : "SLID_NOSH",
+    "type" : [ "int", "null" ],
+    "columnName" : "SLID_NOSH",
+    "sqlType" : "2"
+  } ],
+  "tableName" : "YO_DFBS"
+}
+2012/08/28 18:45:28.992 +0200 WARN [JobBase] [] SQOOP_HOME is unset. May not be able to find all job dependencies.
+2012/08/28 18:45:31.992 +0200 ERROR [ImportTool] [] Encountered IOException running import job: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://qvipkar5.france.airfrance.fr:19100/user/karma/hadoop/external_feed/pdd/120701/DFE01A/INPUT/YO_DFBS2 already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:132)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:872)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:833)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:396)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1127)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:833)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:476)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:506)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runJob(ImportJobBase.java:119)
+	at org.apache.sqoop.mapreduce.ImportJobBase.runImport(ImportJobBase.java:179)
+	at org.apache.sqoop.manager.SqlManager.importTable(SqlManager.java:413)
+	at org.apache.sqoop.manager.OracleManager.importTable(OracleManager.java:380)
+	at org.apache.sqoop.tool.ImportTool.importTable(ImportTool.java:390)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:479)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+
+2012/08/28 19:33:43.173 +0200 WARN [SqoopTool] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 19:33:43.360 +0200 WARN [BaseSqoopTool] [] Setting your password on the command-line is insecure. Consider using -P instead.
+2012/08/28 19:33:43.360 +0200 INFO [ImportTool] [] Use librairy YO_DFBS\KarmaSchemaAvroDatabase-0.14.2.jar to retrieve Avro schema instead of generating it.
+2012/08/28 19:33:43.360 +0200 WARN [ConnFactory] [] $SQOOP_CONF_DIR has not been set in the environment. Cannot check for additional configuration.
+2012/08/28 19:33:43.376 +0200 WARN [DefaultManagerFactory] [] Could not determine scheme component of connect string
+2012/08/28 19:33:43.376 +0200 ERROR [BaseSqoopTool] [] Got error creating database manager: java.io.IOException: No manager for connect string: null
+	at org.apache.sqoop.ConnFactory.getManager(ConnFactory.java:119)
+	at org.apache.sqoop.tool.BaseSqoopTool.init(BaseSqoopTool.java:200)
+	at org.apache.sqoop.tool.ImportTool.init(ImportTool.java:86)
+	at org.apache.sqoop.tool.ImportTool.run(ImportTool.java:452)
+	at org.apache.sqoop.Sqoop.run(Sqoop.java:145)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.sqoop.Sqoop.runSqoop(Sqoop.java:181)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:220)
+	at org.apache.sqoop.Sqoop.runTool(Sqoop.java:229)
+	at org.apache.sqoop.Sqoop.main(Sqoop.java:238)
+	at com.cloudera.sqoop.Sqoop.main(Sqoop.java:57)
+

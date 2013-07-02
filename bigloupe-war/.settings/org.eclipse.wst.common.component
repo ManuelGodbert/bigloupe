@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="websolr">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/resources/js/jquery/jquery-contextmenu"/>
+        <dependent-module archiveName="bigloupe-common-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-common/bigloupe-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bigloupe-hadoop-security-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-hadoop-security/bigloupe-hadoop-security">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bigloupe-map-reduce-job-monitoring-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-map-reduce-job-monitoring/bigloupe-map-reduce-job-monitoring">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bigloupe-scheduler-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-scheduler/bigloupe-scheduler">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bigloupe-hadoop-tools-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-hadoop-tools/bigloupe-hadoop-tools">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bigloupe-chart-0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bigloupe-chart/bigloupe-chart">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/websolr/target/classes"/>
+        <property name="context-root" value="bigloupe-war"/>
+        <property name="component.exclusion.patterns" value="indexes/**,tmp/**"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,279 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.bigloupe</groupId>
+		<artifactId>bigloupe-pom</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<artifactId>bigloupe-launcher</artifactId>
+	<packaging>jar</packaging>
+	<name>BigLoupe Launcher</name>
+
+	<properties>
+		<!-- final name of the deployable jar here (the überjar) -->
+		<bundle.name>bigloupe-${project.version}</bundle.name>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<slf4j.version>1.6.4</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<!-- Apache Commons IO, HTTPComponent -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Jetty artifacts. Note: They do have transitive dependencies. -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-websocket</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+
+
+		<!-- Glassfish JSP implementation. In the future jetty@eclipse may have 
+			packages for this. Important librairies : not use jsp-2.0 -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jsp-api-2.1-glassfish</artifactId>
+			<version>${glassfish-jsp-2.1.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jsp-2.1-glassfish</artifactId>
+			<version>${glassfish-jsp-2.1.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>bigloupe</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<!-- Copy bigloupe.war -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.bigloupe</groupId>
+									<artifactId>bigloupe-war</artifactId>
+									<version>1.0</version>
+									<type>war</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/web</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<!-- Assembly a runnable JAR with Jetty + WAR embedded -->
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<createDependencyReducedPom>true</createDependencyReducedPom>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>org.bigloupe.launcher.Main</mainClass>
+								</transformer>
+							</transformers>
+							<artifactSet>
+								<excludes>
+									<exclude>antlr:antlr</exclude>
+									<exclude>aopalliance:aopalliance</exclude>
+									<exclude>org.apache.tiles:*</exclude>
+									<exclude>org.aspectj:*</exclude>
+									<exclude>cglib:*</exclude>
+									<exclude>com.fasterxml:jackson-module-hibernate:*</exclude>
+									<exclude>com.google.zxing:*</exclude>
+									<exclude>com.googlecode:*</exclude>
+									<exclude>com.h2database:*</exclude>
+									<exclude>commons-digester:commons-digester:*</exclude>
+									<exclude>commons-codec:commons-codec:*</exclude>
+									<exclude>commons-lang:commons-lang:*</exclude>
+									<exclude>commons-pool:commons-pool::*</exclude>
+									<exclude>commons-dbcp:commons-dbcp:*</exclude>
+									<exclude>dom4j:dom4j</exclude>
+									<exclude>javassist:*</exclude>
+									<exclude>javax:*</exclude>
+									<exclude>javax.transaction:*</exclude>
+									<exclude>javax.validation:*</exclude>
+									<exclude>junit:*</exclude>
+									<exclude>net:*</exclude>
+									<exclude>org.codehaus.jackson:*</exclude>
+									<exclude>org.hamcrest:*</exclude>
+									<exclude>org.hibernate:*</exclude>
+									<exclude>org.hibernate.javax.persistence:*</exclude>
+									<exclude>org.springframework:*</exclude>
+									<exclude>org.springframework.data:*</exclude>
+									<exclude>org.springframework.security:*</exclude>
+									<exclude>taglibs:*</exclude>
+								</excludes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>zip</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.4</version>
+						<configuration>
+							<descriptors>
+								<descriptor>src/main/assembly/zip.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>

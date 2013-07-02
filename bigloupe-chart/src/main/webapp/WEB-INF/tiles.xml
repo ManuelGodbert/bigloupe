@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!-- Master for administration tasks -->
+	<definition name="master-admin" template="/WEB-INF/jsp/layout/layout.jsp">
+		<put-attribute name="menu" value="/WEB-INF/jsp/layout/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-list-attribute name="additionalJavascript" />
+	</definition>
+
+	<!-- Used by code 500 servlet error : simple layout to avoid any new errors -->
+	<definition name="500" template="/WEB-INF/jsp/error/500.jsp" />
+	
+	<!-- Master page -->
+	<definition name="index" extends="master-admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+
+</tiles-definitions>

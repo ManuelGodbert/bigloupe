@@ -1,0 +1,29 @@
+
+#jdbc.password=karma_r
+jdbc.password=karma_admin
+#jdbc.username=karma_r
+jdbc.username=karma_o
+jdbc.url=jdbc:oracle:thin:@qvidbdk1.france.airfrance.fr:1530:KARMAPLG
+
+jdbc.driverClassName=oracle.jdbc.driver.OracleDriver
+
+jdbc.password=${jdbc.password}
+jdbc.url=${jdbc.url}
+jdbc.username=${jdbc.username}
+jdbc.driverClassName=${jdbc.driverClassName}
+
+karma.doc.url=http://qvidkar4.france.airfrance.fr:8081/secure/html
+
+# ElasticSearch URL
+elasticsearch.url=http://qvirkar1.france.airfrance.fr:9200
+#elasticsearch.url=http://localhost:9200
+
+# ElasticSearch URL for Node to node communication
+elasticsearch.node.url=http://qvirkar1.france.airfrance.fr:9300
+#elasticsearch.node.url=http://localhost:9300
+
+# ElasticSearch directory installation
+elasticsearch.dir=/app/KARMA/travail/karma-search/elasticsearch-0.20.2
+
+# Use Ambrose (https://github.com/twitter/ambrose) in BigLoupe
+useAmbroseInBigLoupe=true

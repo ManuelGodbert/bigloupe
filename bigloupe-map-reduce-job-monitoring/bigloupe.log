@@ -1,0 +1,109 @@
+2013/02/05 12:17:44.676 +0100 INFO [TestContextManager] @TestExecutionListeners is not present for class [class org.bigloupe.web.monitor.service.impl.DatabaseStatsServiceTest]: using defaults.
+2013/02/05 12:17:44.989 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [applicationContext-database-test.xml]
+2013/02/05 12:17:45.176 +0100 INFO [GenericApplicationContext] Refreshing org.springframework.context.support.GenericApplicationContext@100ab23: startup date [Tue Feb 05 12:17:45 CET 2013]; root of context hierarchy
+2013/02/05 12:17:45.395 +0100 INFO [DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@145c859: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 12:17:45.911 +0100 INFO [DatabaseStatsService] Initialization mode : drop table PIG_STATS_EVENTS
+2013/02/05 12:17:47.661 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2013/02/05 12:17:47.755 +0100 INFO [SQLErrorCodesFactory] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+2013/02/05 12:17:47.770 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_EVENTS
+2013/02/05 12:17:47.770 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_JOBNODE
+2013/02/05 12:17:47.770 +0100 INFO [DatabaseStatsService] Table PIG_STATS_EVENTS or table PIG_STATS_JOBNODE doesn't exist
+2013/02/05 12:17:47.770 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_EVENTS
+2013/02/05 12:17:47.770 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_JOBNODE
+2013/02/05 12:17:52.270 +0100 INFO [GenericApplicationContext] Closing org.springframework.context.support.GenericApplicationContext@100ab23: startup date [Tue Feb 05 12:17:45 CET 2013]; root of context hierarchy
+2013/02/05 12:17:52.270 +0100 INFO [DefaultListableBeanFactory] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@145c859: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 12:18:46.099 +0100 INFO [TestContextManager] @TestExecutionListeners is not present for class [class org.bigloupe.web.monitor.service.impl.DatabaseStatsServiceTest]: using defaults.
+2013/02/05 12:18:46.255 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [applicationContext-database-test.xml]
+2013/02/05 12:18:46.396 +0100 INFO [GenericApplicationContext] Refreshing org.springframework.context.support.GenericApplicationContext@503429: startup date [Tue Feb 05 12:18:46 CET 2013]; root of context hierarchy
+2013/02/05 12:18:46.505 +0100 INFO [DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@d9660d: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 12:18:46.630 +0100 INFO [DatabaseStatsService] Initialization mode : drop table PIG_STATS_EVENTS
+2013/02/05 12:18:47.239 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2013/02/05 12:18:47.317 +0100 INFO [SQLErrorCodesFactory] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+2013/02/05 12:18:47.317 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_EVENTS
+2013/02/05 12:18:47.317 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_JOBNODE
+2013/02/05 12:18:47.317 +0100 INFO [DatabaseStatsService] Table PIG_STATS_EVENTS or table PIG_STATS_JOBNODE doesn't exist
+2013/02/05 12:18:47.317 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_EVENTS
+2013/02/05 12:18:47.317 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_JOBNODE
+2013/02/05 12:18:47.630 +0100 INFO [GenericApplicationContext] Closing org.springframework.context.support.GenericApplicationContext@503429: startup date [Tue Feb 05 12:18:46 CET 2013]; root of context hierarchy
+2013/02/05 12:18:47.630 +0100 INFO [DefaultListableBeanFactory] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@d9660d: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 12:19:22.630 +0100 INFO [TestContextManager] @TestExecutionListeners is not present for class [class org.bigloupe.web.monitor.service.impl.DatabaseStatsServiceTest]: using defaults.
+2013/02/05 12:19:22.786 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [applicationContext-database-test.xml]
+2013/02/05 12:19:22.943 +0100 INFO [GenericApplicationContext] Refreshing org.springframework.context.support.GenericApplicationContext@503429: startup date [Tue Feb 05 12:19:22 CET 2013]; root of context hierarchy
+2013/02/05 12:19:23.083 +0100 INFO [DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@bb0d0d: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 12:19:23.271 +0100 INFO [DatabaseStatsService] Initialization mode : drop table PIG_STATS_EVENTS
+2013/02/05 12:19:23.974 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2013/02/05 12:19:24.052 +0100 INFO [SQLErrorCodesFactory] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+2013/02/05 12:19:24.052 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_EVENTS
+2013/02/05 12:19:24.052 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_JOBNODE
+2013/02/05 12:19:24.052 +0100 INFO [DatabaseStatsService] Table PIG_STATS_EVENTS or table PIG_STATS_JOBNODE doesn't exist
+2013/02/05 12:19:24.052 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_EVENTS
+2013/02/05 12:19:24.068 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_JOBNODE
+2013/02/05 12:19:24.365 +0100 INFO [GenericApplicationContext] Closing org.springframework.context.support.GenericApplicationContext@503429: startup date [Tue Feb 05 12:19:22 CET 2013]; root of context hierarchy
+2013/02/05 12:19:24.365 +0100 INFO [DefaultListableBeanFactory] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@bb0d0d: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/02/05 13:33:28.534 +0100 INFO [TestContext] @ContextConfiguration not found for class [class org.bigloupe.web.monitor.service.impl.RemoteStatsWriteServiceTest]
+2013/02/05 13:33:28.549 +0100 INFO [TestContextManager] @TestExecutionListeners is not present for class [class org.bigloupe.web.monitor.service.impl.RemoteStatsWriteServiceTest]: using defaults.
+2013/02/05 13:33:28.721 +0100 ERROR [TestContextManager] Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1833955] to prepare test instance [org.bigloupe.web.monitor.service.impl.RemoteStatsWriteServiceTest@291aff]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+2013/02/05 13:34:05.034 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 13:34:05.034 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 13:34:44.643 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 13:35:28.909 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 13:35:53.425 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 13:35:53.425 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:16:46.128 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/$%7B444%7D.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:16:46.128 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:22:58.693 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/$%7B444%7D.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:22:58.709 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:36:19.870 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/$%7B444%7D.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:36:19.870 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:37:16.933 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/444.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:37:16.933 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:38:00.152 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/444.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:38:23.152 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:42:21.591 +0100 WARN [RestTemplate] POST request for "http://localhost:9090/map-reduce-statistics/sendDagNodeNameMap/444.html" resulted in 400 (Bad Request); invoking error handler
+2013/02/05 14:42:21.607 +0100 INFO [RemoteStatsWriteService] Server BigLoupe 'http://localhost:9090/map-reduce-statistics' is unavailable
+2013/02/05 14:51:29.673 +0100 INFO [RemoteStatsWriteService] Push event to BigLoupe server ('http://localhost:9090/map-reduce-statistics') for workflow '444'
+2013/03/01 15:27:38.185 +0100 INFO [TestContextManager] @TestExecutionListeners is not present for class [class org.bigloupe.web.monitor.service.impl.DatabaseStatsServiceTest]: using defaults.
+2013/03/01 15:27:39.618 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [applicationContext-database-test.xml]
+2013/03/01 15:27:43.154 +0100 INFO [GenericApplicationContext] Refreshing org.springframework.context.support.GenericApplicationContext@e3b895: startup date [Fri Mar 01 15:27:43 CET 2013]; root of context hierarchy
+2013/03/01 15:27:43.901 +0100 INFO [DefaultListableBeanFactory] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@153f67e: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2013/03/01 15:27:44.789 +0100 INFO [DatabaseStatsService] Initialization mode : drop table PIG_STATS_EVENTS
+2013/03/01 15:27:46.954 +0100 INFO [XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2013/03/01 15:27:47.141 +0100 INFO [SQLErrorCodesFactory] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+2013/03/01 15:27:47.156 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_EVENTS
+2013/03/01 15:27:47.156 +0100 INFO [DatabaseStatsService] Can't drop table PIG_STATS_JOBNODE
+2013/03/01 15:27:47.156 +0100 INFO [DatabaseStatsService] Table PIG_STATS_EVENTS or table PIG_STATS_JOBNODE doesn't exist
+2013/03/01 15:27:47.156 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_EVENTS
+2013/03/01 15:27:47.172 +0100 INFO [DatabaseStatsService] Create table PIG_STATS_JOBNODE
+2013/03/01 15:27:48.621 +0100 INFO [GenericApplicationContext] Closing org.springframework.context.support.GenericApplicationContext@e3b895: startup date [Fri Mar 01 15:27:43 CET 2013]; root of context hierarchy
+2013/03/01 15:27:48.636 +0100 INFO [DefaultListableBeanFactory] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@153f67e: defining beans [databaseStatsService,h2DataSource,jdbcH2Template,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy

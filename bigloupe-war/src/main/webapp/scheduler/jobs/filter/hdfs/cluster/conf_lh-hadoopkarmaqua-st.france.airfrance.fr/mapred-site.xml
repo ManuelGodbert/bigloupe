@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<property>
+		<name>mapred.job.tracker</name>
+		<value>lh-hadoopkarmaqua-st.france.airfrance.fr:3301</value>
+	</property>
+	<property>
+		<name>mapred.jobtracker.maxtasks.per.job</name>
+		<value>-1</value>
+	</property>
+	<property>
+		<name>mapred.job.reuse.jvm.num.tasks</name>
+		<value>-1</value>
+	</property>
+	<property>
+		<name>mapred.tasktracker.map.tasks.maximum</name>
+		<value>8</value>
+	</property>
+	<property>
+		<name>mapred.map.tasks</name>
+		<value>112</value>
+	</property>
+	<property>
+		<name>mapred.tasktracker.reduce.tasks.maximum</name>
+		<value>8</value>
+	</property>
+	<property>
+		<name>mapred.reduce.tasks</name>
+		<value>112</value>
+	</property>
+	<property>
+		<name>mapred.map.child.java.opts</name>
+		<value>-Xmx16384M</value>
+	</property>
+	<property>
+		<name>mapred.reduce.child.java.opts</name>
+		<value>-Xmx1024M</value>
+	</property>
+	<property>
+		<name>mapred.map.tasks</name>
+		<value>40</value>
+	</property>
+</configuration>

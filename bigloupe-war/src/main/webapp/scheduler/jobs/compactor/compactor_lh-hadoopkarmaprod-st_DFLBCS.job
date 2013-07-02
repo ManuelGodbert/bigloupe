@@ -1,0 +1,7 @@
+#Wed Aug 29 17:24:11 CEST 2012
+type=map-reduce
+hadoop.home=hdfs/cluster/conf_lh-hadoopkarmaprod-st.france.airfrance.fr
+classpath.ext=./lib,./hadoop-client
+jar=lib/compactor-1.1.jar
+jar.args=--input-format org.apache.avro.mapred.AvroInputFormat --avro-input-schema --output-format org.apache.avro.mapred.AvroOutputFormat --compress none --verbose --tmp-dir /user/karma/ /user/karma/hadoop/DBLive13-DEBUG/PDDDEBUG/rsu/common/db/ys/scopepdd/YS_DFLBCS /user/karma/hadoop/DBLive13-DEBUG/PDDDEBUG/rsu/common/db/ys/scopepdd/YS_DFLBCS_CRUNCHED TEST
+env.crushType=TEXT
