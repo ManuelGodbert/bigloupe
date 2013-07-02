@@ -1,7 +1,12 @@
-# Memo to use Cloudbees
+# Memo to deploy in Cloudbees
 
-Test en local
+- Test in local mode
 mvn bees:run -Ptomcat-bees
 
-Deploiement
+- Deployment
 mvn bees:deploy -Ptomcat-bees -Dmaven.test.skip=true
+
+- Url : 
+http://bigloupe.bigloupe.cloudbees.net/
+
+
